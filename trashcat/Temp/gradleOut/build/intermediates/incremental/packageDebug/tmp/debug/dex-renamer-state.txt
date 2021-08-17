@@ -1,0 +1,4 @@
+#Mon Aug 16 08:37:04 EEST 2021
+base.0=C\:\\Users\\Andra Cardas\\Desktop\\trashcat\\wip\\trashcat\\trashcat\\Temp\\gradleOut\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
