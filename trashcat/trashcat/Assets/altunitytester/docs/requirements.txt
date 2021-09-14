@@ -1,0 +1,10 @@
+Sphinx
+
+docutils==0.16
+recommonmark
+
+sphinx-markdown-tables
+sphinx-tabs
+sphinx-rtd-theme
+
+pygit2

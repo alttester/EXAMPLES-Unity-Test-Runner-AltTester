@@ -1,0 +1,3 @@
+[submodule "trashcat/trashcat/Assets/altunitytester"]
+	path = trashcat/trashcat/Assets/altunitytester
+	url = https://gitlab.com/altom/altunity/altunitytester.git
