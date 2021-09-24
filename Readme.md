@@ -14,7 +14,6 @@ If you are following our example and are willing to use both Unity Test Framewor
 </ul>
 When working in Unity, you might see that the EditMode assembly is visible in the AltUnity Tester Editor and the other way around as well. Running the tests from the Editor they don’t belong to, won’t give you any information about the tests results. Their presence there won’t impact your work.
 
-
 For more information on how to write and run tests using AltUnity Tester you can check our tutorial here https://www.youtube.com/watch?v=L4yAgv8Jc8s
 
 
