@@ -1,45 +1,47 @@
 ﻿using UnityEngine;
 using System;
-
-public class ExtraLife : Consumable
+namespace Tests
 {
-    protected const int k_MaxLives = 3;
-    protected const int k_CoinValue = 10;
-
-    public override string GetConsumableName()
+    public class ExtraLife : Consumable
     {
-        return "Life";
-    }
+        protected const int k_MaxLives = 3;
+        protected const int k_CoinValue = 10;
 
-    public override ConsumableType GetConsumableType()
-    {
-        return ConsumableType.EXTRALIFE;
-    }
+        public override string GetConsumableName()
+        {
+            return "Life";
+        }
 
-    public override int GetPrice()
-    {
-        return 2000;
-    }
+        public override ConsumableType GetConsumableType()
+        {
+            return ConsumableType.EXTRALIFE;
+        }
 
-	public override int GetPremiumCost()
-	{
-		return 5;
-	}
+        public override int GetPrice()
+        {
+            return 2000;
+        }
 
-    public override bool CanBeUsed(CharacterInputController c)
-    {
-        if (c.currentLife == c.maxLife)
-            return false;
+        public override int GetPremiumCost()
+        {
+            return 5;
+        }
 
-        return true;
-    }
+        public override bool CanBeUsed(CharacterInputController c)
+        {
+            if (c.currentLife == c.maxLife)
+                return false;
 
-    public override void Started(CharacterInputController c)
-    {
-        base.Started(c);
-        if (c.currentLife < k_MaxLives)
-            c.currentLife += 1;
-		else
-            c.coins += k_CoinValue;
+            return true;
+        }
+
+        public override void Started(CharacterInputController c)
+        {
+            base.Started(c);
+            if (c.currentLife < k_MaxLives)
+                c.currentLife += 1;
+            else
+                c.coins += k_CoinValue;
+        }
     }
 }

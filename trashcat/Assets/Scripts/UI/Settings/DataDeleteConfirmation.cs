@@ -1,29 +1,31 @@
 ﻿using UnityEngine;
-
-public class DataDeleteConfirmation : MonoBehaviour
+namespace Tests
 {
-    protected LoadoutState m_LoadoutState;
-
-    public void Open(LoadoutState owner)
+    public class DataDeleteConfirmation : MonoBehaviour
     {
-        gameObject.SetActive(true);
-        m_LoadoutState = owner;
-    }
+        protected LoadoutState m_LoadoutState;
 
-    public void Close()
-    {
-        gameObject.SetActive(false);
-    }
+        public void Open(LoadoutState owner)
+        {
+            gameObject.SetActive(true);
+            m_LoadoutState = owner;
+        }
 
-    public void Confirm()
-    {
-        PlayerData.NewSave();
-        m_LoadoutState.Refresh();
-        Close();
-    }
+        public void Close()
+        {
+            gameObject.SetActive(false);
+        }
 
-    public void Deny()
-    {
-        Close();
+        public void Confirm()
+        {
+            PlayerData.NewSave();
+            m_LoadoutState.Refresh();
+            Close();
+        }
+
+        public void Deny()
+        {
+            Close();
+        }
     }
 }

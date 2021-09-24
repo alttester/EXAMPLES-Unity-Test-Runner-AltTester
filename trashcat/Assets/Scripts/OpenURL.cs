@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 
-public class OpenURL : MonoBehaviour
+namespace Tests
 {
-    public string websiteAddress;
-
-    public void OpenURLOnClick()
+    public class OpenURL : MonoBehaviour
     {
-        Application.OpenURL(websiteAddress);
+        public string websiteAddress;
+
+        public void OpenURLOnClick()
+        {
+            Application.OpenURL(websiteAddress);
+        }
     }
 }

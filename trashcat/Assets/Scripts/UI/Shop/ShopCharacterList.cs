@@ -3,89 +3,90 @@ using System.Collections.Generic;
 #if UNITY_ANALYTICS
 using UnityEngine.Analytics;
 #endif
-
-public class ShopCharacterList : ShopList
+namespace Tests
 {
-    public override void Populate()
+    public class ShopCharacterList : ShopList
     {
-		m_RefreshCallback = null;
-        foreach (Transform t in listRoot)
+        public override void Populate()
         {
-            Destroy(t.gameObject);
-        }
-
-        foreach(KeyValuePair<string, Character> pair in CharacterDatabase.dictionary)
-        {
-            Character c = pair.Value;
-            if (c != null)
+            m_RefreshCallback = null;
+            foreach (Transform t in listRoot)
             {
-                GameObject newEntry = Instantiate(prefabItem);
-                newEntry.transform.SetParent(listRoot, false);
+                Destroy(t.gameObject);
+            }
 
-                ShopItemListItem itm = newEntry.GetComponent<ShopItemListItem>();
+            foreach (KeyValuePair<string, Character> pair in CharacterDatabase.dictionary)
+            {
+                Character c = pair.Value;
+                if (c != null)
+                {
+                    GameObject newEntry = Instantiate(prefabItem);
+                    newEntry.transform.SetParent(listRoot, false);
 
-				itm.icon.sprite = c.icon;
-                itm.nameText.text = c.characterName;
-				itm.pricetext.text = c.cost.ToString();
+                    ShopItemListItem itm = newEntry.GetComponent<ShopItemListItem>();
 
-				itm.buyButton.image.sprite = itm.buyButtonSprite;
+                    itm.icon.sprite = c.icon;
+                    itm.nameText.text = c.characterName;
+                    itm.pricetext.text = c.cost.ToString();
 
-				if (c.premiumCost > 0)
-				{
-					itm.premiumText.transform.parent.gameObject.SetActive(true);
-					itm.premiumText.text = c.premiumCost.ToString();
-				}
-				else
-				{
-					itm.premiumText.transform.parent.gameObject.SetActive(false);
-				}
+                    itm.buyButton.image.sprite = itm.buyButtonSprite;
 
-				itm.buyButton.onClick.AddListener(delegate () { Buy(c); });
+                    if (c.premiumCost > 0)
+                    {
+                        itm.premiumText.transform.parent.gameObject.SetActive(true);
+                        itm.premiumText.text = c.premiumCost.ToString();
+                    }
+                    else
+                    {
+                        itm.premiumText.transform.parent.gameObject.SetActive(false);
+                    }
 
-				m_RefreshCallback += delegate() { RefreshButton(itm, c); };
-				RefreshButton(itm, c);
+                    itm.buyButton.onClick.AddListener(delegate () { Buy(c); });
+
+                    m_RefreshCallback += delegate () { RefreshButton(itm, c); };
+                    RefreshButton(itm, c);
+                }
             }
         }
-    }
 
-	protected void RefreshButton(ShopItemListItem itm, Character c)
-	{
-		if (c.cost > PlayerData.instance.coins)
-		{
-			itm.buyButton.interactable = false;
-			itm.pricetext.color = Color.red;
-		}
-		else
-		{
-			itm.pricetext.color = Color.black;
-		}
+        protected void RefreshButton(ShopItemListItem itm, Character c)
+        {
+            if (c.cost > PlayerData.instance.coins)
+            {
+                itm.buyButton.interactable = false;
+                itm.pricetext.color = Color.red;
+            }
+            else
+            {
+                itm.pricetext.color = Color.black;
+            }
 
-		if (c.premiumCost > PlayerData.instance.premium)
-		{
-			itm.buyButton.interactable = false;
-			itm.premiumText.color = Color.red;
-		}
-		else
-		{
-			itm.premiumText.color = Color.black;
-		}
+            if (c.premiumCost > PlayerData.instance.premium)
+            {
+                itm.buyButton.interactable = false;
+                itm.premiumText.color = Color.red;
+            }
+            else
+            {
+                itm.premiumText.color = Color.black;
+            }
 
-		if (PlayerData.instance.characters.Contains(c.characterName))
-		{
-			itm.buyButton.interactable = false;
-			itm.buyButton.image.sprite = itm.disabledButtonSprite;
-			itm.buyButton.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = "Owned";
-		}
-	}
-
+            if (PlayerData.instance.characters.Contains(c.characterName))
+            {
+                itm.buyButton.interactable = false;
+                itm.buyButton.image.sprite = itm.disabledButtonSprite;
+                itm.buyButton.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = "Owned";
+            }
+        }
 
 
-	public void Buy(Character c)
-    {
-        PlayerData.instance.coins -= c.cost;
-		PlayerData.instance.premium -= c.premiumCost;
-        PlayerData.instance.AddCharacter(c.characterName);
-        PlayerData.instance.Save();
+
+        public void Buy(Character c)
+        {
+            PlayerData.instance.coins -= c.cost;
+            PlayerData.instance.premium -= c.premiumCost;
+            PlayerData.instance.AddCharacter(c.characterName);
+            PlayerData.instance.Save();
 
 #if UNITY_ANALYTICS // Using Analytics Standard Events v0.3.0
         var transactionId = System.Guid.NewGuid().ToString();
@@ -134,7 +135,8 @@ public class ShopCharacterList : ShopList
         }
 #endif
 
-        // Repopulate to change button accordingly.
-        Populate();
+            // Repopulate to change button accordingly.
+            Populate();
+        }
     }
 }

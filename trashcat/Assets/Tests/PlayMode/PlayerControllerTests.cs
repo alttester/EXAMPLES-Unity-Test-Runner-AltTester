@@ -8,61 +8,49 @@ using UnityEngine.UI;
 
 namespace Tests
 {
-    public class PlayerControllerTests
+    public class PlayerControllerTests : MonoBehaviour
     {
         bool clicked = false;
         public GameObject character;
         public GameObject startObject;
+        public GameState gameState;
+
+        public GameObject gameOverPopup;
+
+        public CharacterInputController controller1;
         [SetUp]
         public void SetUp()
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
-            character = GameObject.Find("PlayerPivot");
-            // StartGame();
-        }
-        private void StartGame()
-        {
-            string name = "StartButton";
-            GameObject startButton = GameObject.Find(name);
 
-            var setupButton = startButton.GetComponent<Button>();
-            setupButton.onClick.AddListener(Clicked);
-            setupButton.onClick.Invoke();
         }
-        [UnityTest]
-        public IEnumerator StartGameTest()
-        {
-            var gameObject = new GameObject();
-            string name = "StartButton";
-            GameObject startButton = GameObject.Find(name);
-            yield return new WaitForSeconds(5);
-            Assert.NotNull(startButton);
-            var setupButton = startButton.GetComponent<Button>();
-            setupButton.onClick.AddListener(Clicked);
-            setupButton.onClick.Invoke();
-            yield return new WaitForSeconds(5);
-            Assert.IsTrue(clicked);
-        }
-        // [UnityTest]
-        // public IEnumerator PlayerIsPresentInSceneTest()
-        // {
-        //     character = GameObject.Find("PlayerPivot");
-        //     yield return new WaitForSeconds(20);
-        //     Assert.NotNull(character);
-        // }
-        [UnityTest]
-        public IEnumerator PlayerJumpsTest()
-        {
-            character = GameObject.Find("PlayerPivot");
-            startObject = GameObject.Find("StartButton");
 
-            yield return new WaitForSeconds(1);
-            Assert.NotNull(startObject);
-            var startButton = startObject.GetComponent<Button>();
-            startButton.onClick.AddListener(Clicked);
-            startButton.onClick.Invoke();
-            yield return new WaitForSeconds(1);
-            Assert.IsTrue(clicked);
+        [UnityTest]
+        public IEnumerator TestStartGame()
+        {
+
+            var gameState = GameObject.Find("Loadout");
+            yield return new WaitForSeconds(5);
+            Assert.NotNull(gameState);
+            var controller = gameState.GetComponent<LoadoutState>();
+            controller.StartGame();
+
+            var track = GameObject.Find("TrackManager");
+            yield return new WaitForSeconds(2);
+            Assert.NotNull(track);
+        }
+
+
+        [UnityTest]
+        public IEnumerator TestPlayerJumps()
+        {
+
+            character = GameObject.Find("PlayerPivot");
+            var gameState = GameObject.Find("Loadout");
+            yield return new WaitForSeconds(5);
+            Assert.NotNull(gameState);
+            var gameController = gameState.GetComponent<LoadoutState>();
+            gameController.StartGame();
 
             yield return new WaitForSeconds(5);
 
@@ -74,18 +62,15 @@ namespace Tests
             Assert.IsFalse(controller.m_Jumping);
         }
         [UnityTest]
-        public IEnumerator PlayerJumpStopsTest()
+        public IEnumerator TestPlayerJumpStops()
         {
             character = GameObject.Find("PlayerPivot");
-            startObject = GameObject.Find("StartButton");
+            var gameState = GameObject.Find("Loadout");
+            yield return new WaitForSeconds(5);
+            Assert.NotNull(gameState);
+            var gameController = gameState.GetComponent<LoadoutState>();
+            gameController.StartGame();
 
-            yield return new WaitForSeconds(1);
-            Assert.NotNull(startObject);
-            var startButton = startObject.GetComponent<Button>();
-            startButton.onClick.AddListener(Clicked);
-            startButton.onClick.Invoke();
-            yield return new WaitForSeconds(1);
-            Assert.IsTrue(clicked);
 
             yield return new WaitForSeconds(5);
 
@@ -102,18 +87,14 @@ namespace Tests
 
         }
         [UnityTest]
-        public IEnumerator PlayerSlidesTest()
+        public IEnumerator TestPlayerSlide()
         {
             character = GameObject.Find("PlayerPivot");
-            startObject = GameObject.Find("StartButton");
-
-            yield return new WaitForSeconds(1);
-            Assert.NotNull(startObject);
-            var startButton = startObject.GetComponent<Button>();
-            startButton.onClick.AddListener(Clicked);
-            startButton.onClick.Invoke();
-            yield return new WaitForSeconds(1);
-            Assert.IsTrue(clicked);
+            var gameState = GameObject.Find("Loadout");
+            yield return new WaitForSeconds(5);
+            Assert.NotNull(gameState);
+            var gameController = gameState.GetComponent<LoadoutState>();
+            gameController.StartGame();
 
             yield return new WaitForSeconds(5);
             var controller = character.GetComponent<CharacterInputController>();
@@ -124,17 +105,14 @@ namespace Tests
         }
 
         [UnityTest]
-        public IEnumerator PlayerCleanConsumablesTest()
+        public IEnumerator TestPlayerCleanConsumables()
         {
             character = GameObject.Find("PlayerPivot");
-            startObject = GameObject.Find("StartButton");
-            yield return new WaitForSeconds(1);
-            Assert.NotNull(startObject);
-            var startButton = startObject.GetComponent<Button>();
-            startButton.onClick.AddListener(Clicked);
-            startButton.onClick.Invoke();
-            yield return new WaitForSeconds(1);
-            Assert.IsTrue(clicked);
+            var gameState = GameObject.Find("Loadout");
+            yield return new WaitForSeconds(5);
+            Assert.NotNull(gameState);
+            var gameController = gameState.GetComponent<LoadoutState>();
+            gameController.StartGame();
 
             yield return new WaitForSeconds(5);
             var controller = character.GetComponent<CharacterInputController>();
@@ -146,17 +124,14 @@ namespace Tests
         }
 
         [UnityTest]
-        public IEnumerator PlayerChangesLaneTest()
+        public IEnumerator TestPlayerChangesLane()
         {
             character = GameObject.Find("PlayerPivot");
-            startObject = GameObject.Find("StartButton");
-            yield return new WaitForSeconds(1);
-            Assert.NotNull(startObject);
-            var startButton = startObject.GetComponent<Button>();
-            startButton.onClick.AddListener(Clicked);
-            startButton.onClick.Invoke();
-            yield return new WaitForSeconds(1);
-            Assert.IsTrue(clicked);
+            var gameState = GameObject.Find("Loadout");
+            yield return new WaitForSeconds(5);
+            Assert.NotNull(gameState);
+            var gameController = gameState.GetComponent<LoadoutState>();
+            gameController.StartGame();
 
             yield return new WaitForSeconds(5);
             var controller = character.GetComponent<CharacterInputController>();
@@ -175,14 +150,6 @@ namespace Tests
         {
             clicked = true;
         }
-        private void clickStartButton()
-        {
-            var gameObject = new GameObject();
-            string name = "StartButton";
-            GameObject startButton = GameObject.Find(name);
-            var setupButton = startButton.GetComponent<Button>();
-            setupButton.onClick.AddListener(Clicked);
-            setupButton.onClick.Invoke();
-        }
+
     }
 }

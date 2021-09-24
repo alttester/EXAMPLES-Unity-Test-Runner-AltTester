@@ -1,24 +1,27 @@
 ﻿using UnityEngine;
 
-public class CountdownSound : MonoBehaviour
+namespace Tests
 {
-	protected AudioSource m_Source;
-	protected float m_TimeToDisable;
+    public class CountdownSound : MonoBehaviour
+    {
+        protected AudioSource m_Source;
+        protected float m_TimeToDisable;
 
-    protected const float k_StartDelay = 0.5f;
-	
-	void OnEnable()
-	{
-		m_Source = GetComponent<AudioSource>();
-		m_TimeToDisable = m_Source.clip.length;
-        m_Source.PlayDelayed(k_StartDelay);
-	}
+        protected const float k_StartDelay = 0.5f;
 
-	void Update()
-	{
-		m_TimeToDisable -= Time.deltaTime;
+        void OnEnable()
+        {
+            m_Source = GetComponent<AudioSource>();
+            m_TimeToDisable = m_Source.clip.length;
+            m_Source.PlayDelayed(k_StartDelay);
+        }
 
-		if (m_TimeToDisable < 0)
-			gameObject.SetActive(false);
-	}
+        void Update()
+        {
+            m_TimeToDisable -= Time.deltaTime;
+
+            if (m_TimeToDisable < 0)
+                gameObject.SetActive(false);
+        }
+    }
 }

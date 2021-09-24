@@ -7,29 +7,30 @@ using UnityEngine.Advertisements;
 #if UNITY_ANALYTICS
 using UnityEngine.Analytics;
 #endif
-
-public class AdsForMission : MonoBehaviour
+namespace Tests
 {
-    public MissionUI missionUI;
+    public class AdsForMission : MonoBehaviour
+    {
+        public MissionUI missionUI;
 
-    public Text newMissionText;
-    public Button adsButton;
+        public Text newMissionText;
+        public Button adsButton;
 #if UNITY_ANALYTICS
     public AdvertisingNetwork adsNetwork = AdvertisingNetwork.UnityAds;
 #endif
-    public string adsPlacementId = "rewardedVideo";
-    public bool adsRewarded = true; 
+        public string adsPlacementId = "rewardedVideo";
+        public bool adsRewarded = true;
 
-    void OnEnable ()
-    {
-        adsButton.gameObject.SetActive(false);
-        newMissionText.gameObject.SetActive(false);
-
-        // Only present an ad offer if less than 3 missions.
-        if (PlayerData.instance.missions.Count >= 3)
+        void OnEnable()
         {
-            return;
-        }
+            adsButton.gameObject.SetActive(false);
+            newMissionText.gameObject.SetActive(false);
+
+            // Only present an ad offer if less than 3 missions.
+            if (PlayerData.instance.missions.Count >= 3)
+            {
+                return;
+            }
 
 #if UNITY_ADS
         var isReady = Advertisement.IsReady(adsPlacementId);
@@ -47,10 +48,10 @@ public class AdsForMission : MonoBehaviour
         newMissionText.gameObject.SetActive(isReady);
         adsButton.gameObject.SetActive(isReady);
 #endif
-    }
+        }
 
-    public void ShowAds()
-    {
+        public void ShowAds()
+        {
 #if UNITY_ADS
         if (Advertisement.IsReady(adsPlacementId))
         {
@@ -73,7 +74,7 @@ public class AdsForMission : MonoBehaviour
 #endif
         }
 #endif
-    }
+        }
 
 #if UNITY_ADS
 
@@ -105,10 +106,11 @@ public class AdsForMission : MonoBehaviour
     }
 #endif
 
-    void AddNewMission()
-    {
-        PlayerData.instance.AddMission();
-        PlayerData.instance.Save();
-        missionUI.Open();
+        void AddNewMission()
+        {
+            PlayerData.instance.AddMission();
+            PlayerData.instance.Save();
+            missionUI.Open();
+        }
     }
 }

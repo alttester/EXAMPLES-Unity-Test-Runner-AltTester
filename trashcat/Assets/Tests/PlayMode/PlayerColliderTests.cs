@@ -11,37 +11,22 @@ namespace Tests
     {
         bool clicked = false;
         public GameObject character;
-        // public CharacterDatabase characterDatabase;
         [SetUp]
         public void SetUp()
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
         }
-        private void StartGame()
-        {
-            string name = "StartButton";
-            GameObject startButton = GameObject.Find(name);
-            var setupButton = startButton.GetComponent<Button>();
-            setupButton.onClick.AddListener(Clicked);
-            setupButton.onClick.Invoke();
-        }
-        private void Clicked()
-        {
-            clicked = true;
-        }
+
         [UnityTest]
         public IEnumerator PlayerIsInvincibleTest()
         {
             character = GameObject.Find("CharacterSlot");
-            // character = GameObject.Find("PlayerPivot");
-            var startObject = GameObject.Find("StartButton");
-            yield return new WaitForSeconds(1);
-            Assert.NotNull(startObject);
-            var startButton = startObject.GetComponent<Button>();
-            startButton.onClick.AddListener(Clicked);
-            startButton.onClick.Invoke();
-            yield return new WaitForSeconds(1);
-            Assert.IsTrue(clicked);
+            var gameState = GameObject.Find("Loadout");
+            yield return new WaitForSeconds(5);
+            Assert.NotNull(gameState);
+            var gameController = gameState.GetComponent<LoadoutState>();
+            gameController.StartGame();
+
             yield return new WaitForSeconds(5);
 
             var collider = character.GetComponent<CharacterCollider>();
@@ -53,3 +38,4 @@ namespace Tests
         }
     }
 }
+

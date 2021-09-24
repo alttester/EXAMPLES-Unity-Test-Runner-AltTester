@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
-
-public class Coin : MonoBehaviour
+namespace Tests
 {
-	static public Pooler coinPool;
-    public bool isPremium = false;
+    public class Coin : MonoBehaviour
+    {
+        static public Pooler coinPool;
+        public bool isPremium = false;
+    }
 }

@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class LevelLoader : MonoBehaviour
+namespace Tests
 {
-    public void LoadLevel(string name)
+    public class LevelLoader : MonoBehaviour
     {
-        SceneManager.LoadScene(name);
+        public void LoadLevel(string name)
+        {
+            SceneManager.LoadScene(name);
+        }
     }
 }

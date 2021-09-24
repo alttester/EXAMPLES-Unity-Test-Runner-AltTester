@@ -24693,8 +24693,10 @@ MonoBehaviour:
   slideSound: {fileID: 8300000, guid: febd5a5a8b245774fbfa9f0bef51e0b6, type: 3}
   powerUpUseSound: {fileID: 8300000, guid: defdb98bfddc24748aead1ce73ba7972, type: 3}
   powerupSource: {fileID: 2094493435}
+  m_ActiveConsumables: []
   m_Jumping: 0
   m_Sliding: 0
+  m_CurrentLane: 1
 --- !u!4 &2094493433
 Transform:
   m_ObjectHideFlags: 0
@@ -25542,7 +25544,7 @@ PrefabInstance:
     - target: {fileID: 8468310483428578792, guid: 476b856160523a746958041cd3eacb2e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8468310483428578793, guid: 476b856160523a746958041cd3eacb2e,
         type: 3}
@@ -25648,6 +25650,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468310484102562445, guid: 476b856160523a746958041cd3eacb2e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8468310484272721552, guid: 476b856160523a746958041cd3eacb2e,
         type: 3}

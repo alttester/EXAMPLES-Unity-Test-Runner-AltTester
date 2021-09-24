@@ -6,9 +6,10 @@ using UnityEngine.Purchasing;
 #if UNITY_ANALYTICS
 using UnityEngine.Analytics;
 #endif
-
-public class IAPHandler : MonoBehaviour
+namespace Tests
 {
+    public class IAPHandler : MonoBehaviour
+    {
 #if UNITY_PURCHASING
     private void OnEnable()
     {
@@ -73,4 +74,5 @@ public class IAPHandler : MonoBehaviour
         Debug.LogError("Product : " + product.definition.id + " couldn't be bought because " + reason);
     }
 #endif
+    }
 }

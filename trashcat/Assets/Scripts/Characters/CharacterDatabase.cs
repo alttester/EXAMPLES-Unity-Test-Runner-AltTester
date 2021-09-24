@@ -6,43 +6,46 @@ using System.Collections.Generic;
 /// <summary>
 /// This allows us to store a database of all characters currently in the bundles, indexed by name.
 /// </summary>
-public class CharacterDatabase
+namespace Tests
 {
-    static protected Dictionary<string, Character> m_CharactersDict;
-
-    static public Dictionary<string, Character> dictionary {  get { return m_CharactersDict; } }
-
-    static protected bool m_Loaded = false;
-    static public bool loaded { get { return m_Loaded; } }
-
-    static public Character GetCharacter(string type)
+    public class CharacterDatabase
     {
-        Character c;
-        if (m_CharactersDict == null || !m_CharactersDict.TryGetValue(type, out c))
-            return null;
+        static protected Dictionary<string, Character> m_CharactersDict;
 
-        return c;
-    }
+        static public Dictionary<string, Character> dictionary { get { return m_CharactersDict; } }
 
-    static public IEnumerator LoadDatabase(List<string> packages)
-    {
-        if (m_CharactersDict == null)
+        static protected bool m_Loaded = false;
+        static public bool loaded { get { return m_Loaded; } }
+
+        static public Character GetCharacter(string type)
         {
-            m_CharactersDict = new Dictionary<string, Character>();
+            Character c;
+            if (m_CharactersDict == null || !m_CharactersDict.TryGetValue(type, out c))
+                return null;
 
-            foreach (string s in packages)
+            return c;
+        }
+
+        static public IEnumerator LoadDatabase(List<string> packages)
+        {
+            if (m_CharactersDict == null)
             {
-                AssetBundleLoadAssetOperation op = AssetBundleManager.LoadAssetAsync(s, "character", typeof(GameObject));
-                yield return CoroutineHandler.StartStaticCoroutine(op);
+                m_CharactersDict = new Dictionary<string, Character>();
 
-                Character c = op.GetAsset<GameObject>().GetComponent<Character>();
-                if (c != null)
+                foreach (string s in packages)
                 {
-                    m_CharactersDict.Add(c.characterName, c);
-                }
-            }
+                    AssetBundleLoadAssetOperation op = AssetBundleManager.LoadAssetAsync(s, "character", typeof(GameObject));
+                    yield return CoroutineHandler.StartStaticCoroutine(op);
 
-            m_Loaded = true;
+                    Character c = op.GetAsset<GameObject>().GetComponent<Character>();
+                    if (c != null)
+                    {
+                        m_CharactersDict.Add(c.characterName, c);
+                    }
+                }
+
+                m_Loaded = true;
+            }
         }
     }
 }

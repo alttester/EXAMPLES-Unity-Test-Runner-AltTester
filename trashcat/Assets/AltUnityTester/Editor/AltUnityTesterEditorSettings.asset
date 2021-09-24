@@ -27,115 +27,131 @@ MonoBehaviour:
     _isSuite: 1
     _parentName: 
     _testCaseCount: 8
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 0
+    _testSelectedCount: 1
   - _selected: 0
     _testName: AltUnityTests
     _status: 0
     _isSuite: 1
     _parentName: C:/Users/Andra Cardas/Desktop/TrashCatUnitRunner/wip/trashcat/trashcat/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 8
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 0
+    _testSelectedCount: 1
   - _selected: 0
     _testName: AltUnityTests.tests
     _status: 0
     _isSuite: 1
     _parentName: AltUnityTests
     _testCaseCount: 8
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 0
+    _testSelectedCount: 1
   - _selected: 0
     _testName: AltUnityTests.tests.GamePlayTests
     _status: 0
     _isSuite: 1
     _parentName: AltUnityTests.tests
     _testCaseCount: 5
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 0
-  - _selected: 0
+    _testSelectedCount: 1
+  - _selected: 1
     _testName: AltUnityTests.tests.GamePlayTests.TestAvoidingObstacles
-    _status: 0
+    _status: -1
     _isSuite: 0
     _parentName: AltUnityTests.tests.GamePlayTests
     _testCaseCount: 1
-    _foldOut: 0
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
+    _foldOut: 1
+    _testResultMessage: 'System.Exception : Socket not connected yet'
+    _testStackTrace: "  at Altom.AltUnityDriver.Commands.AltBaseCommand.Recvall ()
+      [0x00087] in C:\\Users\\Andra Cardas\\Desktop\\TrashCatUnitRunner\\wip\\trashcat\\trashcat\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\AltBaseCommand.cs:52
+      \r\n  at Altom.AltUnityDriver.Commands.AltUnityCommandReturningAltElement.ReceiveAltUnityObject
+      () [0x00001] in C:\\Users\\Andra Cardas\\Desktop\\TrashCatUnitRunner\\wip\\trashcat\\trashcat\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\AltUnityCommandReturningAltElement.cs:14
+      \r\n  at Altom.AltUnityDriver.Commands.AltUnityFindObject.Execute () [0x000e1]
+      in C:\\Users\\Andra Cardas\\Desktop\\TrashCatUnitRunner\\wip\\trashcat\\trashcat\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\FindObjects\\AltUnityFindObject.cs:33
+      \r\n  at Altom.AltUnityDriver.AltUnityDriver.FindObject (Altom.AltUnityDriver.By
+      by, System.String value, Altom.AltUnityDriver.By cameraBy, System.String cameraValue,
+      System.Boolean enabled) [0x00001] in C:\\Users\\Andra Cardas\\Desktop\\TrashCatUnitRunner\\wip\\trashcat\\trashcat\\Assets\\AltUnityTester\\AltUnityDriver\\AltUnityDriver.cs:154
+      \r\n  at AltUnityTests.pages.GamePlay.AvoidObstacles (System.Int32 numberOfObstacles)
+      [0x003a6] in C:\\Users\\Andra Cardas\\Desktop\\TrashCatUnitRunner\\wip\\trashcat\\trashcat\\Assets\\Editor\\AltUnityTests\\pages\\GamePlay.cs:107
+      \r\n  at AltUnityTests.tests.GamePlayTests.TestAvoidingObstacles () [0x00001]
+      in C:\\Users\\Andra Cardas\\Desktop\\TrashCatUnitRunner\\wip\\trashcat\\trashcat\\Assets\\Editor\\AltUnityTests\\tests\\GamePlayTests.cs:51
+      \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n
+      \ at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
+      culture) [0x00032] in <567df3e0919241ba98db88bec4c6696f>:0 "
+    _testDuration: 22.9542985
     path: Assets/Editor/AltUnityTests
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTests.tests.GamePlayTests.TestGameCanBePausedAndResumed
-    _status: 0
+    _status: 1
     _isSuite: 0
     _parentName: AltUnityTests.tests.GamePlayTests
     _testCaseCount: 1
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0
+    _testDuration: 0.1714213
     path: Assets/Editor/AltUnityTests
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTests.tests.GamePlayTests.TestGameCanBePausedAndStopped
-    _status: 0
+    _status: 1
     _isSuite: 0
     _parentName: AltUnityTests.tests.GamePlayTests
     _testCaseCount: 1
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0
+    _testDuration: 0.2032815
     path: Assets/Editor/AltUnityTests
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTests.tests.GamePlayTests.TestGamePlayDisplayedCorrectly
-    _status: 0
+    _status: 1
     _isSuite: 0
     _parentName: AltUnityTests.tests.GamePlayTests
     _testCaseCount: 1
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0
+    _testDuration: 0.0319737
     path: Assets/Editor/AltUnityTests
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTests.tests.GamePlayTests.TestPlayerDiesWhenObstacleNotAvoided
-    _status: 0
+    _status: 1
     _isSuite: 0
     _parentName: AltUnityTests.tests.GamePlayTests
     _testCaseCount: 1
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0
+    _testDuration: 18.5526596
     path: Assets/Editor/AltUnityTests
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTests.tests.MainMenuTests
-    _status: 0
+    _status: 1
     _isSuite: 1
     _parentName: AltUnityTests.tests
     _testCaseCount: 1
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -143,14 +159,14 @@ MonoBehaviour:
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTests.tests.MainMenuTests.TestMainMenuPageLoadedCorrectly
-    _status: 0
+    _status: 1
     _isSuite: 0
     _parentName: AltUnityTests.tests.MainMenuTests
     _testCaseCount: 1
-    _foldOut: 0
+    _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0
+    _testDuration: 0.1929815
     path: Assets/Editor/AltUnityTests
     _testSelectedCount: 0
   - _selected: 0
@@ -189,12 +205,24 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/AltUnityTests
     _testSelectedCount: 0
+  - _selected: 1
+    _testName: C:/Users/Andra Cardas/Desktop/TrashCatUnitRunner/wip/trashcat/trashcat/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+    _status: 0
+    _isSuite: 1
+    _parentName: 
+    _testCaseCount: 0
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
   - _selected: 0
     _testName: C:/Users/Andra Cardas/Desktop/TrashCatUnitRunner/wip/trashcat/trashcat/Library/ScriptAssemblies/PlayMode.dll
     _status: 0
     _isSuite: 1
     _parentName: 
-    _testCaseCount: 6
+    _testCaseCount: 8
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
@@ -206,6 +234,42 @@ MonoBehaviour:
     _status: 0
     _isSuite: 1
     _parentName: C:/Users/Andra Cardas/Desktop/TrashCatUnitRunner/wip/trashcat/trashcat/Library/ScriptAssemblies/PlayMode.dll
+    _testCaseCount: 8
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayerColliderTests
+    _status: 0
+    _isSuite: 1
+    _parentName: Tests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayerColliderTests.PlayerIsInvincibleTest
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayerColliderTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/AltUnityTests
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayerControllerTests
+    _status: 0
+    _isSuite: 1
+    _parentName: Tests
     _testCaseCount: 6
     _foldOut: 0
     _testResultMessage: 
@@ -214,43 +278,7 @@ MonoBehaviour:
     path: 
     _testSelectedCount: 0
   - _selected: 0
-    _testName: Tests.PlayerControllerTests
-    _status: 0
-    _isSuite: 1
-    _parentName: Tests
-    _testCaseCount: 5
-    _foldOut: 0
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
-    path: 
-    _testSelectedCount: 0
-  - _selected: 0
-    _testName: Tests.PlayerControllerTests.CatRuns
-    _status: 0
-    _isSuite: 0
-    _parentName: Tests.PlayerControllerTests
-    _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
-    path: Assets/Editor/AltUnityTests
-    _testSelectedCount: 0
-  - _selected: 0
-    _testName: Tests.PlayerControllerTests.MainTestWithEnumeratorPasses
-    _status: 0
-    _isSuite: 0
-    _parentName: Tests.PlayerControllerTests
-    _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
-    path: Assets/Editor/AltUnityTests
-    _testSelectedCount: 0
-  - _selected: 0
-    _testName: Tests.PlayerControllerTests.PlayerJumpTest
+    _testName: Tests.PlayerControllerTests.TestPlayerChangesLane
     _status: 0
     _isSuite: 0
     _parentName: Tests.PlayerControllerTests
@@ -262,7 +290,7 @@ MonoBehaviour:
     path: Assets/Editor/AltUnityTests
     _testSelectedCount: 0
   - _selected: 0
-    _testName: Tests.PlayerControllerTests.PlayerRunsTest
+    _testName: Tests.PlayerControllerTests.TestPlayerCleanConsumables
     _status: 0
     _isSuite: 0
     _parentName: Tests.PlayerControllerTests
@@ -274,7 +302,43 @@ MonoBehaviour:
     path: Assets/Editor/AltUnityTests
     _testSelectedCount: 0
   - _selected: 0
-    _testName: Tests.PlayerControllerTests.PlayerSlideTest
+    _testName: Tests.PlayerControllerTests.TestPlayerJumps
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayerControllerTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/AltUnityTests
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayerControllerTests.TestPlayerJumpStops
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayerControllerTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/AltUnityTests
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayerControllerTests.TestPlayerSlide
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayerControllerTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/AltUnityTests
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayerControllerTests.TestStartGame
     _status: 0
     _isSuite: 0
     _parentName: Tests.PlayerControllerTests
@@ -298,7 +362,7 @@ MonoBehaviour:
     path: 
     _testSelectedCount: 0
   - _selected: 0
-    _testName: Tests.StartPageTest.StartPageTestWithEnumeratorPasses
+    _testName: Tests.StartPageTest.StartGameTest
     _status: 0
     _isSuite: 0
     _parentName: Tests.StartPageTest
@@ -308,18 +372,6 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: Assets/Editor/AltUnityTests
-    _testSelectedCount: 0
-  - _selected: 1
-    _testName: C:/Users/Andra Cardas/Desktop/TrashCatUnitRunner/wip/trashcat/trashcat/Library/ScriptAssemblies/Unity.Rider.Editor.dll
-    _status: 0
-    _isSuite: 1
-    _parentName: 
-    _testCaseCount: 0
-    _foldOut: 0
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
-    path: 
     _testSelectedCount: 0
   Scenes:
   - _toBeBuilt: 1

@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ConsumableIcon : MonoBehaviour
+namespace Tests
 {
-    public Text numberTxt;
-    public Image iconImg;
+    public class ConsumableIcon : MonoBehaviour
+    {
+        public Text numberTxt;
+        public Image iconImg;
+    }
 }
