@@ -28,6 +28,7 @@ namespace AltUnityTests.tests
         [Test]
         public void TestGamePlayDisplayedCorrectly()
         {
+            mainMenuPage.PressRun();
             Assert.True(gamePlayPage.IsDisplayed());
         }
         [Test]
@@ -45,16 +46,13 @@ namespace AltUnityTests.tests
             pauseOverlayPage.PressMainMenu();
             Assert.True(mainMenuPage.IsDisplayed());
         }
-        [Test]
-        public void TestAvoidingObstacles()
-        {
-            gamePlayPage.AvoidObstacles(10);
-            Assert.True(gamePlayPage.GetCurrentLife() > 0);
-        }
+        
         [Test]
         public void TestPlayerDiesWhenObstacleNotAvoided()
         {
-            float timeout = 20;
+            altUnityDriver.LoadScene("Main");
+            mainMenuPage.PressRun();
+            float timeout = 30;
             while (timeout > 0)
             {
                 try

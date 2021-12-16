@@ -64,6 +64,7 @@ namespace Tests
         [UnityTest]
         public IEnumerator TestPlayerJumpStops()
         {
+            
             character = GameObject.Find("PlayerPivot");
             var gameState = GameObject.Find("Loadout");
             yield return new WaitForSeconds(5);
@@ -71,18 +72,14 @@ namespace Tests
             var gameController = gameState.GetComponent<LoadoutState>();
             gameController.StartGame();
 
-
             yield return new WaitForSeconds(5);
 
-            var controller = character.GetComponent<CharacterInputController>();
+            var controller = this.character.GetComponent<CharacterInputController>();
             controller.Jump();
-            controller.Jump();
-            controller.Jump();
-
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(0.1f);
             Assert.IsTrue(controller.m_Jumping);
             controller.StopJumping();
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(0.1f);
             Assert.IsFalse(controller.m_Jumping);
 
         }
@@ -100,7 +97,7 @@ namespace Tests
             var controller = character.GetComponent<CharacterInputController>();
             controller.Slide();
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(0.1f);
             Assert.IsTrue(controller.m_Sliding);
         }
 

@@ -18,7 +18,7 @@ namespace AltUnityTests.pages
         public AltUnityObject UnityUrlButton { get => Driver.WaitForObject(By.NAME, "UnityURLButton", timeout: 2); }
         public bool IsDisplayed()
         {
-            if (StartButton != null && StartText != null && LogoImage != null && UnityUrlButton != null)
+            if (StartButton != null)
                 return true;
             return false;
         }
