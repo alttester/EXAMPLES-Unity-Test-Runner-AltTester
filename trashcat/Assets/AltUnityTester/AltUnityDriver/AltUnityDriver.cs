@@ -16,7 +16,7 @@ namespace Altom.AltUnityDriver
     {
         private readonly TcpClient tcpClient;
         private readonly SocketSettings socketSettings;
-        public static readonly string VERSION = "1.7.1";
+        public static readonly string VERSION = "1.7.2";
 
         public TcpClient TcpClient { get { return tcpClient; } }
         public SocketSettings SocketSettings { get { return socketSettings; } }
